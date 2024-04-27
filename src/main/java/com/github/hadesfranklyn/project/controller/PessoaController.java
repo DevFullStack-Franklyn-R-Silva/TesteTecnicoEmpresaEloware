@@ -1,5 +1,7 @@
 package com.github.hadesfranklyn.project.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +35,11 @@ public class PessoaController {
     @GetMapping("/{id}")
     public Pessoa consultarPessoa(@PathVariable Long id) {
         return pessoaService.consultarPessoa(id);
+    }
+    
+    @GetMapping("/consultar-todas")
+    public List<Pessoa> consultarTodasPessoas() {
+        return pessoaService.consultarTodasPessoas();
     }
     
     @DeleteMapping("/deletar/{id}") 

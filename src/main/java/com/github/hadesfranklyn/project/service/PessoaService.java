@@ -1,5 +1,7 @@
 package com.github.hadesfranklyn.project.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -35,6 +37,11 @@ public class PessoaService {
     public Pessoa consultarPessoa(Long id) {
         return pessoaRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Pessoa não encontrada com o ID: " + id));
+    }
+    
+    @Transactional(readOnly = true)
+    public List<Pessoa> consultarTodasPessoas() {
+        return pessoaRepository.findAll();
     }
     
     @Transactional
