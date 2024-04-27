@@ -20,8 +20,34 @@ Este projeto contém uma API RESTful para gerenciamento de pessoas e endereços 
 
 ### Pessoa
 
+#### Consultar Pessoa
+- **URL:** `GET http://localhost:8080/api/pessoas/{id}`
+- **Body (JSON):**
+```json
+{
+  "nomeCompleto": "João da Silva2",
+  "dataNascimento": "1990-05-15",
+  "enderecos": [
+    {
+      "logradouro": "Rua A",
+      "cep": "12345-678",
+      "numero": "100",
+      "cidade": "São Paulo",
+      "estado": "SP"
+    },
+    {
+      "logradouro": "Rua B",
+      "cep": "54321-987",
+      "numero": "200",
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ"
+    }
+  ]
+}
+```
+
 #### Criar Pessoa
-- **URL:** `POST http://localhost:8080/api/pessoas`
+- **URL:** `POST http://localhost:8080/api/pessoas/criar`
 - **Body (JSON):**
 ```json
 {
@@ -44,3 +70,56 @@ Este projeto contém uma API RESTful para gerenciamento de pessoas e endereços 
     }
   ]
 }
+```
+
+#### Editar Pessoa
+- **URL:** `PUT http://localhost:8080/api/pessoas/editar/{id}`
+- **Body (JSON):**
+```json
+{
+  "nomeCompleto": "João da Silva2",
+  "dataNascimento": "1990-05-15",
+  "enderecos": [
+    {
+      "logradouro": "Rua A",
+      "cep": "12345-678",
+      "numero": "100",
+      "cidade": "São Paulo",
+      "estado": "SP"
+    },
+    {
+      "logradouro": "Rua B",
+      "cep": "54321-987",
+      "numero": "200",
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ"
+    }
+  ]
+}
+```
+
+#### Deletar Pessoa
+- **URL:** `DELETE http://localhost:8080/api/pessoas/deletar/{id}`
+- **Body (JSON):**
+```json
+{
+  "nomeCompleto": "João da Silva2",
+  "dataNascimento": "1990-05-15",
+  "enderecos": [
+    {
+      "logradouro": "Rua A",
+      "cep": "12345-678",
+      "numero": "100",
+      "cidade": "São Paulo",
+      "estado": "SP"
+    },
+    {
+      "logradouro": "Rua B",
+      "cep": "54321-987",
+      "numero": "200",
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ"
+    }
+  ]
+}
+```
