@@ -4,6 +4,9 @@
 
 Este projeto contém uma API RESTful para gerenciamento de pessoas e endereços utilizando Java com Spring Boot e banco de dados MySQL.
 
+## Diagrama UML
+![PNG](src/main/resources/templates/diagramaUML.png)
+
 ## Configuração do Ambiente
 
 1. Clone o repositório para a sua máquina local.
