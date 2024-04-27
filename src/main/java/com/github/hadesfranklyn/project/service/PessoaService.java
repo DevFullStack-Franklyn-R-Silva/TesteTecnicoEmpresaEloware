@@ -2,6 +2,7 @@ package com.github.hadesfranklyn.project.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.github.hadesfranklyn.project.model.Endereco;
 import com.github.hadesfranklyn.project.model.Pessoa;
@@ -13,12 +14,14 @@ public class PessoaService {
     @Autowired
     private PessoaRepository pessoaRepository;
 
+    @Transactional
     public Pessoa criarPessoa(Pessoa pessoa) {
         for (Endereco endereco : pessoa.getEnderecos()) {
             endereco.setPessoa(pessoa);
         }
         return pessoaRepository.save(pessoa);
     }
+    @Transactional
     public Pessoa editarPessoa(Long id, Pessoa pessoa) {
         if (pessoaRepository.existsById(id)) {
             pessoa.setId(id);
@@ -28,8 +31,14 @@ public class PessoaService {
         }
     }
 
+    @Transactional(readOnly = true)
     public Pessoa consultarPessoa(Long id) {
         return pessoaRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Pessoa não encontrada com o ID: " + id));
+    }
+    
+    @Transactional
+    public void deletarPessoa(Long id) {
+        pessoaRepository.deleteById(id);
     }
 }
