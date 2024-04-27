@@ -46,6 +46,60 @@ Este projeto contém uma API RESTful para gerenciamento de pessoas e endereços 
 }
 ```
 
+#### Consultar Pessoa
+- **URL:** `GET http://localhost:8080/api/pessoas/consultar-todas`
+- **Body (JSON):**
+```json
+{
+    {
+        "id": 1,
+        "nomeCompleto": "João da Silva",
+        "dataNascimento": "1990-05-15",
+        "enderecos": [
+            {
+                "id": 1,
+                "logradouro": "Rua A",
+                "cep": "12345-678",
+                "numero": "100",
+                "cidade": "São Paulo",
+                "estado": "SP"
+            },
+            {
+                "id": 2,
+                "logradouro": "Rua B",
+                "cep": "54321-987",
+                "numero": "200",
+                "cidade": "Rio de Janeiro",
+                "estado": "RJ"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "nomeCompleto": "João da Silva",
+        "dataNascimento": "1990-05-15",
+        "enderecos": [
+            {
+                "id": 3,
+                "logradouro": "Rua A",
+                "cep": "12345-678",
+                "numero": "100",
+                "cidade": "São Paulo",
+                "estado": "SP"
+            },
+            {
+                "id": 4,
+                "logradouro": "Rua B",
+                "cep": "54321-987",
+                "numero": "200",
+                "cidade": "Rio de Janeiro",
+                "estado": "RJ"
+            }
+        ]
+    }
+}
+```
+
 #### Criar Pessoa
 - **URL:** `POST http://localhost:8080/api/pessoas/criar`
 - **Body (JSON):**
