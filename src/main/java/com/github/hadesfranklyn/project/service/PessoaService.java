@@ -3,6 +3,7 @@ package com.github.hadesfranklyn.project.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.hadesfranklyn.project.model.Endereco;
 import com.github.hadesfranklyn.project.model.Pessoa;
 import com.github.hadesfranklyn.project.repositories.PessoaRepository;
 
@@ -13,9 +14,11 @@ public class PessoaService {
     private PessoaRepository pessoaRepository;
 
     public Pessoa criarPessoa(Pessoa pessoa) {
+        for (Endereco endereco : pessoa.getEnderecos()) {
+            endereco.setPessoa(pessoa);
+        }
         return pessoaRepository.save(pessoa);
     }
-
     public Pessoa editarPessoa(Long id, Pessoa pessoa) {
         if (pessoaRepository.existsById(id)) {
             pessoa.setId(id);
