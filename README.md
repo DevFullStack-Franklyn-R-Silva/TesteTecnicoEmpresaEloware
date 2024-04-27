@@ -46,7 +46,7 @@ Este projeto contém uma API RESTful para gerenciamento de pessoas e endereços 
 }
 ```
 
-#### Consultar Pessoa
+#### Consultar TODAS Pessoas
 - **URL:** `GET http://localhost:8080/api/pessoas/consultar-todas`
 - **Body (JSON):**
 ```json
